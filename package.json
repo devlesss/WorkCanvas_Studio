@@ -2,7 +2,19 @@
   "name": "workcanvas-studio",
   "version": "0.1.0",
   "private": false,
-  "description": "Framework-neutral browser control samples for workflow learning and automation",
+  "description": "Reusable Standard HTML and React workflow samples for browser automation, AI agents, and Playwright testing",
+  "keywords": [
+    "browser-automation",
+    "ai-agent",
+    "workflow-automation",
+    "playwright",
+    "react",
+    "ui-testing",
+    "semantic-locator",
+    "popup-automation",
+    "dynamic-grid"
+  ],
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
