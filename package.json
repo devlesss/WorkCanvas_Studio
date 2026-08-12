@@ -1,0 +1,26 @@
+{
+  "name": "workcanvas-studio",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Framework-neutral browser control samples for workflow learning and automation",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run build:react && vite build",
+    "build:react": "vite build --config samples/react/vite.config.ts",
+    "test": "npm run build:react && vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.1.3",
+    "vitest": "^3.2.0"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}

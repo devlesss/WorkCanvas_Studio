@@ -1,0 +1,28 @@
+node_modules/
+dist/
+web/samples/react/
+.env
+.env.*
+!.env.example
+tests/e2e/login.txt
+coverage/
+storage/artifacts/*
+!storage/artifacts/.gitkeep
+storage/screenshots/*
+!storage/screenshots/.gitkeep
+storage/downloads/*
+storage/exports/*
+storage/*.sqlite
+storage/*.sqlite-*
+storage/web/*
+!storage/web/.gitkeep
+playwright-report/
+test-results/
+
+# Accidental shell/evaluation artifacts
+([{}]src
+f.location.href)
+td.innerText)
+
+# Runtime workflow plans may contain ERP credentials.
+docs/workflows/*.md
