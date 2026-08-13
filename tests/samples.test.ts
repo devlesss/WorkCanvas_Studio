@@ -21,11 +21,14 @@ describe("public control samples", () => {
   it("operates the standard HTML dialog and row-add controls", async () => {
     const page = await browser.newPage();
     await page.goto(sampleUrl("/samples/standard-controls.html"));
-    await page.getByRole("button", { name: "품목 검색 팝업 열기" }).click();
+    await page.locator("#language").selectOption("ko");
+    expect(await page.getByRole("heading", { name: "재고조회 컨트롤 테스트" }).isVisible()).toBe(true);
+    await page.locator("#language").selectOption("en");
+    await page.getByRole("button", { name: "Open item search dialog" }).click();
     expect(await page.getByRole("dialog").isVisible()).toBe(true);
-    await page.getByRole("button", { name: "취소" }).click();
+    await page.getByRole("button", { name: "Cancel" }).click();
     const before = await page.locator("#resultBody tr").count();
-    await page.getByRole("button", { name: "행 추가" }).click();
+    await page.getByRole("button", { name: "Add row" }).click();
     expect(await page.locator("#resultBody tr").count()).toBe(before + 1);
     await page.close();
   });
@@ -33,12 +36,15 @@ describe("public control samples", () => {
   it("operates React controlled inputs, modal, and detail rows", async () => {
     const page = await browser.newPage();
     await page.goto(sampleUrl("/samples/react/"));
+    await page.getByLabel("Language / 언어").selectOption("ko");
+    expect(await page.getByRole("heading", { name: "구매발주 컨트롤 테스트" }).isVisible()).toBe(true);
+    await page.getByLabel("Language / 언어").selectOption("en");
     await page.getByTestId("note").fill("public sample");
     expect(await page.getByTestId("note").inputValue()).toBe("public sample");
-    await page.getByRole("button", { name: "검색" }).click();
+    await page.getByRole("button", { name: "Search" }).click();
     expect(await page.getByRole("dialog").isVisible()).toBe(true);
-    await page.getByRole("button", { name: "취소" }).click();
-    await page.getByRole("button", { name: "행 추가" }).click();
+    await page.getByRole("button", { name: "Cancel" }).click();
+    await page.getByRole("button", { name: "Add row" }).click();
     expect(await page.locator("tbody tr").count()).toBe(1);
     await page.close();
   });

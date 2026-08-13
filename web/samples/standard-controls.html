@@ -1,40 +1,31 @@
 <!doctype html>
-<html lang="ko" data-theme="light" data-asset-tone="brand" data-ui-framework="standard-html">
+<html lang="en" data-theme="light" data-asset-tone="brand" data-ui-framework="standard-html">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>표준 HTML ERP 컨트롤 테스트</title>
+  <title>Standard HTML Inventory Workflow Sample</title>
   <link rel="stylesheet" href="/variables.css"><link rel="stylesheet" href="/samples/sample-controls.css">
 </head>
 <body>
-  <header><div><span class="eyebrow">STANDARD HTML</span><h1>재고조회 컨트롤 테스트</h1></div><a href="/">Workflow Studio</a></header>
+  <header><div><span class="eyebrow">STANDARD HTML</span><h1 data-en="Inventory Workflow Controls" data-ko="재고조회 컨트롤 테스트">Inventory Workflow Controls</h1></div><div class="actions"><label><span data-en="Language" data-ko="언어">Language</span><select id="language"><option value="en">English</option><option value="ko">한국어</option></select></label><a href="/">WorkCanvas Studio</a></div></header>
   <main>
     <section class="card" aria-labelledby="conditions-title">
-      <div class="card-head"><div><span class="eyebrow">조회 조건</span><h2 id="conditions-title">재고 조회</h2></div><span id="resultCount" class="badge">조회 전</span></div>
-      <form id="queryForm">
-        <div class="form-grid">
-          <label>창고<select id="warehouse" name="warehouse" data-testid="warehouse"><option value="">전체</option><option value="SEOUL">서울창고</option><option value="BUSAN">부산창고</option></select></label>
-          <label>품번/품명<span class="input-action"><input id="itemKeyword" name="itemKeyword" data-testid="item-keyword" placeholder="품번 또는 품명"><button type="button" id="openItemPopup" aria-label="품목 검색 팝업 열기">검색</button></span></label>
-          <label>품목구분<select id="itemType" name="itemType" data-testid="item-type"><option value="">전체</option><option value="RAW">원자재</option><option value="PRODUCT">제품</option></select></label>
-          <label>기준일<input id="baseDate" name="baseDate" type="date" value="2026-08-04" data-testid="base-date"></label>
-        </div>
-        <fieldset><legend>재고 상태</legend><label class="inline"><input type="radio" name="stockState" value="ALL" checked>전체</label><label class="inline"><input type="radio" name="stockState" value="AVAILABLE">가용재고</label><label class="inline"><input id="includeZero" type="checkbox">0 재고 포함</label></fieldset>
-        <div class="actions"><button type="reset" class="secondary">초기화</button><button type="submit" id="queryButton">조회</button></div>
-      </form>
+      <div class="card-head"><div><span class="eyebrow" data-en="QUERY CONDITIONS" data-ko="조회 조건">QUERY CONDITIONS</span><h2 id="conditions-title" data-en="Inventory Inquiry" data-ko="재고 조회">Inventory Inquiry</h2></div><span id="resultCount" class="badge">Not queried</span></div>
+      <form id="queryForm"><div class="form-grid">
+        <label><span data-en="Warehouse" data-ko="창고">Warehouse</span><select id="warehouse" data-testid="warehouse"><option value="">All</option><option value="SEOUL">Seoul Warehouse</option><option value="BUSAN">Busan Warehouse</option></select></label>
+        <label><span data-en="Item code/name" data-ko="품번/품명">Item code/name</span><span class="input-action"><input id="itemKeyword" data-testid="item-keyword" placeholder="Item code or name"><button type="button" id="openItemPopup" aria-label="Open item search dialog" data-en="Search" data-ko="검색">Search</button></span></label>
+        <label><span data-en="Item type" data-ko="품목구분">Item type</span><select id="itemType" data-testid="item-type"><option value="">All</option><option value="RAW">Raw material</option><option value="PRODUCT">Finished product</option></select></label>
+        <label><span data-en="Base date" data-ko="기준일">Base date</span><input id="baseDate" type="date" value="2026-08-04" data-testid="base-date"></label>
+      </div><fieldset><legend data-en="Stock status" data-ko="재고 상태">Stock status</legend><label class="inline"><input type="radio" name="stockState" value="ALL" checked><span data-en="All" data-ko="전체">All</span></label><label class="inline"><input type="radio" name="stockState" value="AVAILABLE"><span data-en="Available" data-ko="가용재고">Available</span></label><label class="inline"><input id="includeZero" type="checkbox"><span data-en="Include zero stock" data-ko="0 재고 포함">Include zero stock</span></label></fieldset>
+      <div class="actions"><button type="reset" class="secondary" data-en="Reset" data-ko="초기화">Reset</button><button type="submit" id="queryButton" data-en="Query" data-ko="조회">Query</button></div></form>
     </section>
-
-    <section class="card"><div class="card-head"><h2>조회 결과</h2><div class="actions"><button id="addRow" class="secondary">행 추가</button><button id="saveButton">저장</button></div></div>
-      <table><thead><tr><th>No</th><th>품번</th><th>품명</th><th>창고</th><th>수량</th><th>선택</th></tr></thead><tbody id="resultBody"></tbody></table>
+    <section class="card"><div class="card-head"><h2 data-en="Query Results" data-ko="조회 결과">Query Results</h2><div class="actions"><button id="addRow" class="secondary" data-en="Add row" data-ko="행 추가">Add row</button><button id="saveButton" data-en="Save" data-ko="저장">Save</button></div></div>
+      <table><thead><tr><th>No</th><th data-en="Item code" data-ko="품번">Item code</th><th data-en="Item name" data-ko="품명">Item name</th><th data-en="Warehouse" data-ko="창고">Warehouse</th><th data-en="Quantity" data-ko="수량">Quantity</th><th data-en="Select" data-ko="선택">Select</th></tr></thead><tbody id="resultBody"></tbody></table>
     </section>
-
-    <section class="card"><div class="card-head"><h2>이벤트 로그</h2><button id="clearLog" class="secondary">비우기</button></div><ol id="eventLog" aria-live="polite"></ol></section>
+    <section class="card"><div class="card-head"><h2 data-en="Event Log" data-ko="이벤트 로그">Event Log</h2><button id="clearLog" class="secondary" data-en="Clear" data-ko="비우기">Clear</button></div><ol id="eventLog" aria-live="polite"></ol></section>
   </main>
-
-  <dialog id="itemDialog" aria-labelledby="item-dialog-title">
-    <form method="dialog" class="dialog-card"><div class="card-head"><h2 id="item-dialog-title">품목 검색</h2><button value="cancel" class="secondary">닫기</button></div>
-      <label>품번/품명<input id="popupKeyword" data-testid="popup-item-keyword"></label><button type="button" id="popupQuery">조회</button>
-      <table><thead><tr><th>품번</th><th>품명</th><th>선택</th></tr></thead><tbody id="popupResults"></tbody></table>
-      <div class="actions"><button value="cancel" class="secondary">취소</button><button type="button" id="confirmItem">확인</button></div>
-    </form>
-  </dialog>
+  <dialog id="itemDialog" aria-labelledby="item-dialog-title"><form method="dialog" class="dialog-card"><div class="card-head"><h2 id="item-dialog-title" data-en="Item Search" data-ko="품목 검색">Item Search</h2><button value="cancel" class="secondary" data-en="Close" data-ko="닫기">Close</button></div>
+    <label><span data-en="Item code/name" data-ko="품번/품명">Item code/name</span><input id="popupKeyword" data-testid="popup-item-keyword"></label><button type="button" id="popupQuery" data-en="Query" data-ko="조회">Query</button>
+    <table><thead><tr><th data-en="Item code" data-ko="품번">Item code</th><th data-en="Item name" data-ko="품명">Item name</th><th data-en="Select" data-ko="선택">Select</th></tr></thead><tbody id="popupResults"></tbody></table>
+    <div class="actions"><button value="cancel" class="secondary" data-en="Cancel" data-ko="취소">Cancel</button><button type="button" id="confirmItem" data-en="Confirm" data-ko="확인">Confirm</button></div></form></dialog>
   <script src="/samples/standard-controls.js"></script>
 </body></html>

@@ -4,6 +4,8 @@
 
 WorkCanvas Studio provides realistic Standard HTML and React business screens for building and testing browser automation. The samples cover the controls that commonly break workflow agents: controlled inputs, search dialogs, result selection, date fields, query results, and dynamic grid rows.
 
+Both interactive samples use English by default and include an English/Korean language selector. Automation-facing IDs, test hooks, and control values remain stable across languages.
+
 ## Why WorkCanvas Studio?
 
 Browser agents often succeed on a simple form but fail when the same business action appears in a popup, React state, or a dynamically added row. WorkCanvas Studio gives teams a safe, synthetic environment in which to reproduce those cases without connecting to a production system.
