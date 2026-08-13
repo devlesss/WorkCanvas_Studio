@@ -24,6 +24,10 @@ Browser agents often succeed on a simple form but fail when the same business ac
 | React purchase order | Controlled inputs, selects, modal lookup, radio selection, detail-row addition and editing |
 | Playwright regression suite | Popup visibility, form state, and exact row-count change verification |
 
+## Example workflow plans
+
+Public planner examples are available in [`plans/`](plans/README.md). Each Standard HTML and React workflow includes an English primary plan and a matching Korean version. The plans demonstrate direct-target execution, popup scoping, postcondition evidence, and exact row-add verification.
+
 All names, codes, and records are synthetic. This public repository contains no vendor-specific ERP adapter, credentials, execution logs, screenshots, downloads, or learned production memory.
 
 ## Quick start
@@ -56,6 +60,7 @@ npm run build
 samples/react/                 React source
 web/samples/standard-controls Standard HTML source
 tests/                         Playwright/Vitest regression tests
+plans/                         English and Korean workflow planner examples
 docs/                          Project introduction and public documentation
 ```
 
