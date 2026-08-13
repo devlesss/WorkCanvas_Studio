@@ -10,7 +10,7 @@ Both interactive samples use English by default and include an English/Korean la
 
 ### Standard HTML inventory workflow
 
-Language switching, semantic item dialog, query execution, and exact row addition:
+Semantic item dialog, query execution, and exact row addition in the English interface:
 
 ![Standard HTML workflow demo](docs/media/standard-html-demo.gif)
 

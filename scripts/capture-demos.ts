@@ -26,8 +26,6 @@ async function captureStandardHtml(): Promise<void> {
   await page.goto(`${baseUrl}/samples/standard-controls.html`);
   await pause(page);
   await page.screenshot({ path: resolve(mediaDir, "standard-html.png"), fullPage: true });
-  await page.locator("#language").selectOption("ko"); await pause(page, 500);
-  await page.locator("#language").selectOption("en"); await pause(page, 500);
   await page.getByRole("button", { name: "Open item search dialog" }).click(); await pause(page);
   await page.getByTestId("popup-item-keyword").fill("ITEM-001");
   await page.getByRole("button", { name: "Query" }).last().click(); await pause(page);
@@ -46,8 +44,6 @@ async function captureReact(): Promise<void> {
   await page.goto(`${baseUrl}/samples/react/`);
   await pause(page);
   await page.screenshot({ path: resolve(mediaDir, "react.png"), fullPage: true });
-  await page.getByLabel("Language / 언어").selectOption("ko"); await pause(page, 500);
-  await page.getByLabel("Language / 언어").selectOption("en"); await pause(page, 500);
   await page.getByTestId("note").fill("Public workflow sample"); await pause(page, 400);
   await page.getByRole("button", { name: "Search" }).click(); await pause(page);
   await page.getByTestId("vendor-keyword").fill("Wonjin");
