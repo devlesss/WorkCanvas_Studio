@@ -1,6 +1,7 @@
 node_modules/
 dist/
 web/samples/react/
+docs/media/video/
 .env
 .env.*
 !.env.example

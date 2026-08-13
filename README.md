@@ -6,6 +6,20 @@ WorkCanvas Studio provides realistic Standard HTML and React business screens fo
 
 Both interactive samples use English by default and include an English/Korean language selector. Automation-facing IDs, test hooks, and control values remain stable across languages.
 
+## Demo
+
+### Standard HTML inventory workflow
+
+Language switching, semantic item dialog, query execution, and exact row addition:
+
+![Standard HTML workflow demo](docs/media/standard-html-demo.gif)
+
+### React purchase-order workflow
+
+Controlled input, vendor modal selection, and dynamic detail-row entry:
+
+![React workflow demo](docs/media/react-demo.gif)
+
 ## Why WorkCanvas Studio?
 
 Browser agents often succeed on a simple form but fail when the same business action appears in a popup, React state, or a dynamically added row. WorkCanvas Studio gives teams a safe, synthetic environment in which to reproduce those cases without connecting to a production system.
@@ -53,6 +67,12 @@ npm run build
 ```
 
 `npm test` builds the React sample and runs browser tests against both frameworks.
+
+To regenerate the public screenshots and source recordings:
+
+```bash
+npm run capture:demos
+```
 
 ## Project structure
 
